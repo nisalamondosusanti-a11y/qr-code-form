@@ -7,18 +7,22 @@
 <body>
   <h2>QR Code Anda</h2>
   <pre id="data"></pre>
-  <img id="qr" src="" alt="QR Code Anda">
+  <img id="qr" src="" alt="QR Code Anda" />
+
   <script>
     function ambilParam(nama) {
       const url = new URL(window.location.href);
       return url.searchParams.get(nama) || "";
     }
+
     window.onload = function () {
       const nama = ambilParam("nama");
       const urut = ambilParam("urut");
       const kk = ambilParam("kk");
+
       const isiQR = Nama: ${nama}\nNomor Urut: ${urut}\nNo KK: ${kk};
-      const urlQR = "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=" + encodeURIComponent(isiQR);
+      const urlQR = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=" + encodeURIComponent(isiQR);
+
       document.getElementById("data").innerText = isiQR;
       document.getElementById("qr").src = urlQR;
     };
